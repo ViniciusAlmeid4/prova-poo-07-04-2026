@@ -30,7 +30,7 @@ public class ProdutoController {
         }
     }
 
-    @PostMapping(path = "/{id}")
+    @PostMapping(path = "")
     public ResponseEntity<ProdutoModel> save(@PathVariable Long id, @RequestBody ProdutoModel produtoModel) {
         return ResponseEntity.ok().body(produtoService.create(produtoModel));
     }
