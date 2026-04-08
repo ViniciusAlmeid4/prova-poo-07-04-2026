@@ -31,12 +31,12 @@ public class ProdutoController {
     }
 
     @PostMapping(path = "")
-    public ResponseEntity<ProdutoModel> save(@PathVariable Long id, @RequestBody ProdutoModel produtoModel) {
+    public ResponseEntity<ProdutoModel> save(@RequestBody ProdutoModel produtoModel) {
         return ResponseEntity.ok().body(produtoService.create(produtoModel));
     }
 
     @PatchMapping(path = "/{id}")
-    public ResponseEntity<ProdutoModel> update(Long id, ProdutoModel produtoModel) {
+    public ResponseEntity<ProdutoModel> update(@PathVariable Long id, @RequestBody ProdutoModel produtoModel) {
         Optional<ProdutoModel> optional = produtoService.patch(id, produtoModel);
         if (optional.isPresent()) {
             return ResponseEntity.ok().body(optional.get());
